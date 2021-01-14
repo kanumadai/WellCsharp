@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Label_accountType" xml:space="preserve">
+    <value>AccountType:</value>
+    <comment>账号类型</comment>
+  </data>
+  <data name="Label_address" xml:space="preserve">
+    <value>Address:</value>
+    <comment>地址</comment>
+  </data>
+  <data name="Label_companyCode" xml:space="preserve">
+    <value>CompanyCode:</value>
+    <comment>开户机构代码</comment>
+  </data>
+  <data name="Label_companyName" xml:space="preserve">
+    <value>CompanyName:</value>
+    <comment>开户机构名</comment>
+  </data>
+  <data name="Label_creditSafeCode" xml:space="preserve">
+    <value>CreditSafeCode:</value>
+    <comment>安全码</comment>
+  </data>
+  <data name="Label_emailAddr" xml:space="preserve">
+    <value>EmailAddr:</value>
+    <comment>Email</comment>
+  </data>
+  <data name="Label_emergencyContact1" xml:space="preserve">
+    <value>EmergencyContact1:</value>
+    <comment>紧急联系人1</comment>
+  </data>
+  <data name="Label_emergencyContact2" xml:space="preserve">
+    <value>EmergencyContact2:</value>
+    <comment>紧急联系人2</comment>
+  </data>
+  <data name="Label_emergencyContactPhone1" xml:space="preserve">
+    <value>EmergencyContactPhone1:</value>
+    <comment>紧急联系人电话1</comment>
+  </data>
+  <data name="Label_emergencyContactPhone2" xml:space="preserve">
+    <value>EmergencyContactPhone2:</value>
+    <comment>紧急联系人电话2</comment>
+  </data>
+  <data name="Label_loginAccount" xml:space="preserve">
+    <value>LoginAccount:</value>
+    <comment>登录账号</comment>
+  </data>
+  <data name="Label_loginPassword" xml:space="preserve">
+    <value>LoginPassword:</value>
+    <comment>登录密码</comment>
+  </data>
+  <data name="Label_payAccount" xml:space="preserve">
+    <value>PayAccount:</value>
+    <comment>支付账号</comment>
+  </data>
+  <data name="Label_payPassword" xml:space="preserve">
+    <value>PayPassword:</value>
+    <comment>支付密码</comment>
+  </data>
+  <data name="Label_safeQuestion1" xml:space="preserve">
+    <value>SafeQuestion1:</value>
+    <comment>安全问题1</comment>
+  </data>
+  <data name="Label_safeQuestion2" xml:space="preserve">
+    <value>SafeQuestion2:</value>
+    <comment>安全问题2</comment>
+  </data>
+  <data name="Label_safeQuestion3" xml:space="preserve">
+    <value>SafeQuestion3:</value>
+    <comment>安全问题3</comment>
+  </data>
+  <data name="Label_safeQuestionAnswer1" xml:space="preserve">
+    <value>SafeQuestionAnswer1:</value>
+    <comment>安全问题答案1</comment>
+  </data>
+  <data name="Label_safeQuestionAnswer2" xml:space="preserve">
+    <value>SafeQuestionAnswer2:</value>
+    <comment>安全问题答案2</comment>
+  </data>
+  <data name="Label_safeQuestionAnswer3" xml:space="preserve">
+    <value>SafeQuestionAnswer3:</value>
+    <comment>安全问题答案3</comment>
+  </data>
+  <data name="Label_shopCode" xml:space="preserve">
+    <value>ShopCode:</value>
+    <comment>支店代码</comment>
+  </data>
+  <data name="Label_shopName" xml:space="preserve">
+    <value>ShopName:</value>
+    <comment>支店名</comment>
+  </data>
+  <data name="Label_telephone" xml:space="preserve">
+    <value>Telephone:</value>
+    <comment>电话</comment>
+  </data>
+  <data name="Label_validDate" xml:space="preserve">
+    <value>ValidDate:</value>
+    <comment>有效期</comment>
+  </data>
+  <data name="Label_webSite" xml:space="preserve">
+    <value>WebSite:</value>
+    <comment>网址</comment>
+  </data>
+  <data name="Msg_E_0001" xml:space="preserve">
+    <value />
+  </data>
+</root>
