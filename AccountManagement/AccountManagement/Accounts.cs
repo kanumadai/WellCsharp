@@ -1,6 +1,7 @@
 ﻿using AccountManagement.Dao;
 using AccountManagement.DbUtils;
 using AccountManagement.Domain;
+using AccountManagement.FileOperate;
 using AccountManagement.Service;
 using System;
 using System.Collections.Generic;
@@ -51,32 +52,34 @@ namespace AccountManagement
             }
             List<AccountInformation> accountFoundList =  _service.findAllData();
 
-            if (accountFoundList == null)
-            {
-                MessageBox.Show("0 result has been found.");
-                return;
-            }
+            resultsCheck(accountFoundList);
+
+            //if (accountFoundList == null)
+            //{
+            //    MessageBox.Show("0 result has been found.");
+            //    return;
+            //}
 
 
-            if (accountFoundList.Count > 0)
-            {
-                //get account data
-                foreach (var item in accountFoundList)
-                {
-                    if (currentUser.Equals(item.userId))
-                    {
-                        _accountList.Add(item);
-                        comboBoxResults.Items.Add(item.companyName + "_" + item.loginAccount);
+            //if (accountFoundList.Count > 0)
+            //{
+            //    //get account data
+            //    foreach (var item in accountFoundList)
+            //    {
+            //        if (currentUser.Equals(item.userId))
+            //        {
+            //            _accountList.Add(item);
+            //            comboBoxResults.Items.Add(item.companyName + "_" + item.loginAccount);
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
 
-            if (_accountList.Count > 0)
-            {
-                MessageBox.Show(string.Format("{0} results has been found.", _accountList.Count));
-                comboBoxResults.SelectedIndex = 0;
-            }
+            //if (_accountList.Count > 0)
+            //{
+            //    MessageBox.Show(string.Format("{0} results has been found.", _accountList.Count));
+            //    comboBoxResults.SelectedIndex = 0;
+            //}
         }
 
 
@@ -132,6 +135,20 @@ namespace AccountManagement
             }
             else
             {
+                if (_accountList.Count > 0)
+                {
+                    int row = _service.saveData(_accountList);
+                    //failed to delete
+                    if (row < 1)
+                    {
+                        MessageBox.Show("Failed to upload accounts.");
+                        return;
+                    }
+
+                    MessageBox.Show(string.Format("Succeed to save {0} account.",row));
+
+                }
+
                 setViewStatus(_viewStatus.S_NOMAL);
                 // disableTextBox();
 
@@ -441,11 +458,134 @@ namespace AccountManagement
             }
             List<AccountInformation> accountFoundList = _service.findDataByKeyWord(comboBoxTableCol.SelectedItem.ToString(), textBoxSearch.Text);
 
-            if(accountFoundList == null)
+            resultsCheck(accountFoundList);
+
+            //if(accountFoundList == null)
+            //{
+            //    MessageBox.Show("0 results has been found.");
+            //    return;
+            //}            
+
+            //if (accountFoundList.Count > 0)
+            //{
+            //    foreach (var item in accountFoundList)
+            //    {
+            //        if (currentUser.Equals(item.userId))
+            //        {
+            //            _accountList.Add(item);
+            //            comboBoxResults.Items.Add(item.companyName + "_" + item.loginAccount);
+
+            //        }
+            //    }
+            //}
+
+            //if (_accountList.Count > 0)
+            //{
+            //    MessageBox.Show(string.Format("{0} results has been found.", _accountList.Count));
+            //    comboBoxResults.SelectedIndex = 0;
+            //}  
+        }
+
+        private void setViewStatus(_viewStatus status){
+            switch (status)
+            {
+                case _viewStatus.S_NOMAL:
+                    btnNew.Text = "New";
+                    btnUpload.Text = "Upload";
+                    btnReadFile.Text = "Read from file";
+                    btnUpdate.Enabled = true;
+                    btnDelete.Enabled = true;
+                    btnAllAccounts.Enabled = true;
+                    btnSearch.Enabled = true;
+                    btnReadFile.Enabled = true;
+                    btnNew.Enabled = true;
+                    break;
+                case _viewStatus.S_NEW:
+                    btnNew.Text = "Cancle";
+                    btnUpload.Text = "Save";
+                    btnUpdate.Enabled = false;
+                    btnDelete.Enabled = false;
+                    btnAllAccounts.Enabled = false;
+                    btnSearch.Enabled = false;
+                    btnReadFile.Enabled = false;
+                    break;
+                case _viewStatus.S_DELETE:
+                    break;
+                case _viewStatus.S_UPDATE:
+                    break;
+                case _viewStatus.S_UPLOAD:
+                    btnReadFile.Text = "Cancle";
+                    btnUpdate.Enabled = false;
+                    btnDelete.Enabled = false;
+                    btnAllAccounts.Enabled = false;
+                    btnSearch.Enabled = false;
+                    btnNew.Enabled = false;
+                    break;
+            }
+        }
+
+        private void btnReadFile_Click(object sender, EventArgs e)
+        {
+            if ("Cancle".Equals(btnReadFile.Text))
+            {
+
+                setViewStatus(_viewStatus.S_NOMAL);
+                _accountList.Clear();
+                comboBoxResults.Items.Clear();
+                return;
+            }
+            setViewStatus(_viewStatus.S_UPLOAD);
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Please Chose a CSV file...";
+            openFileDialog.InitialDirectory = @"./";
+            openFileDialog.Filter = "|*.csv|csv file|*.*|all file|";
+            openFileDialog.ShowDialog();
+
+            string fileName = openFileDialog.FileName;
+
+            List<object> accountInformationList = _account.loadCsvFile(fileName);
+            if (_accountList != null)
+            {
+                comboBoxResults.Items.Clear();
+                _accountList.Clear();
+            }
+
+            if (accountInformationList == null)
             {
                 MessageBox.Show("0 results has been found.");
                 return;
-            }            
+            }
+
+            if (accountInformationList.Count > 0)
+            {
+                foreach (var item in accountInformationList)
+                {
+                    AccountInformation acc = (AccountInformation)item;
+                    if (currentUser.Equals(acc.userId))
+                    {
+                        _accountList.Add(acc);
+                        comboBoxResults.Items.Add(acc.companyName + "_" + acc.loginAccount);
+
+                    }
+                }
+            }
+
+            if (_accountList.Count > 0)
+            {
+                MessageBox.Show(string.Format("{0} results has been found.", _accountList.Count));
+                comboBoxResults.SelectedIndex = 0;
+            }
+
+        }
+
+        private void resultsCheck(List<AccountInformation> accountFoundList)
+        {
+            if (accountFoundList == null)
+            {
+                MessageBox.Show("0 results has been found.");
+                return;
+            }
 
             if (accountFoundList.Count > 0)
             {
@@ -464,42 +604,7 @@ namespace AccountManagement
             {
                 MessageBox.Show(string.Format("{0} results has been found.", _accountList.Count));
                 comboBoxResults.SelectedIndex = 0;
-            }  
-        }
-
-        private void setViewStatus(_viewStatus status){
-            switch (status)
-            {
-                case _viewStatus.S_NOMAL:
-                    btnNew.Text = "New";
-                    btnUpload.Text = "Upload";
-                    btnUpdate.Enabled = true;
-                    btnDelete.Enabled = true;
-                    btnAllAccounts.Enabled = true;
-                    btnSearch.Enabled = true;
-                    btnReadFile.Enabled = true;
-                    break;
-                case _viewStatus.S_NEW:
-                    btnNew.Text = "Cancle";
-                    btnUpload.Text = "Save";
-                    btnUpdate.Enabled = false;
-                    btnDelete.Enabled = false;
-                    btnAllAccounts.Enabled = false;
-                    btnSearch.Enabled = false;
-                    btnReadFile.Enabled = false;
-                    break;
-                case _viewStatus.S_DELETE:
-                    break;
-                case _viewStatus.S_UPDATE:
-                    break;
-                case _viewStatus.S_UPLOAD:
-                    break;
             }
-        }
-
-        private void btnReadFile_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

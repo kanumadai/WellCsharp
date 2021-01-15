@@ -1,6 +1,7 @@
 ﻿using AccountManagement.Dao;
 using AccountManagement.DbUtils;
 using AccountManagement.Domain;
+using AccountManagement.FormComm;
 using AccountManagement.Service;
 using MySql.Data.MySqlClient;
 using System;
@@ -45,8 +46,10 @@ namespace AccountManagement
                     password = textBoxPassword.Text
                 };
                 IServiceAble<Users> service = new ServiceImpl<Users>();
-   
-                int rows = service.saveData(user);
+
+                List<Users> userList = new List<Users>();
+                userList.Add(user);
+                int rows = service.saveData(userList);
                 if (rows < 0)
                 {
                     labelMsg.Text = "Failed to create a user, please try later.";
@@ -153,7 +156,8 @@ namespace AccountManagement
 
         private void AccountManagement_Load(object sender, EventArgs e)
         {
-          //  DataSource.connectionPool();
+            //  DataSource.connectionPool();
+            CommLog.loger.Info("Hello Account Manager:");
 
         }
     }
