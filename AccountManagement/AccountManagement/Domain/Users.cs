@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace AccountManagement.Domain
         /// <summary>
         /// user id
         /// </summary>
+        [Key]
         public Int64 Id { get; set; }
         /// <summary>
         /// account

@@ -1,72 +1,94 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using AccountManagement.DbUtils;
+//using AccountManagement.Domain;
+//using System;
+//using System.Collections.Generic;
+//using System.Configuration;
+//using System.Data.Entity;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace AccountManagement.Dao
-{
+//namespace AccountManagement.Dao
+//{
 
-    //public class GenericDBContext<T>  where T : class
+//    public class GenericDBContext<T> where T :  class
 
-    //{
+//    {
+//        public GenericDBContext() 
+//        {
 
-    //    public DbSet<T> Items { get; set; }
+//        }
 
-    //    public List<T> Get()
 
-    //    {
 
-    //        return Set<T>().ToList();
 
-    //    }
-    //    public T Get(int id)
+//        public List<T> Get()
 
-    //    {
+//        {
+//            List<AccountInformation> list = new List<AccountInformation>();
+//            using (var context = new DbEntities())
+//            {
+//                list = context.accountInfoDbset
+//                    .AsNoTracking()
+//                    .ToList();
 
-    //        return Items.Find(id);
+//                //var dd =  from du in context.usersDbset
+//                //          where du.userId equals (from da in context.accountInfoDbset
+//                //                                 where da.userId == ""
+//                //                                 select da.userId) 
+                    
+//                //    sel
+                        
+//            }
 
-    //    }
-    //    public void Put(T item)
+//            return list;
 
-    //    {
+//        }
+//        public T Get(int id)
 
-    //        Items.Attach(item);
+//        {
 
-    //        Entry(item).State = EntityState.Modified;
+//            return Items.Find(id);
 
-    //        SaveChanges();
+//        }
+//        public void Put(T item)
 
-    //    }
-    //    public void Post(T item)
+//        {
 
-    //    {
+//            Items.Attach(item);
 
-    //        Items.Add(item);
+//            Entry(item).State = EntityState.Modified;
 
-    //        SaveChanges();
+//            SaveChanges();
 
-    //    }
-    //    public void Delete(int id)
+//        }
+//        public void Post(T item)
 
-    //    {
+//        {
 
-    //        Delete(Get(id));
+//            Items.Add(item);
 
-    //    }
-    //    public void Delete(T item)
+//            SaveChanges();
 
-    //    {
+//        }
+//        public void Delete(int id)
 
-    //        Items.Attach(item);
+//        {
 
-    //        Entry(item).State = EntityState.Deleted;
+//            Delete(Get(id));
 
-    //        SaveChanges();
+//        }
+//        public void Delete(T item)
 
-    //    }
+//        {
 
-    //}
-}
+//            Items.Attach(item);
+
+//            Entry(item).State = EntityState.Deleted;
+
+//            SaveChanges();
+
+//        }
+
+//    }
+//}

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement", "AccountManagement\AccountManagement.csproj", "{95A9BE43-F732-4425-9B0C-0910CF50E456}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanaFrame", "..\KanaFrame\KanaFrame.csproj", "{B3AE0553-11CE-4FB6-A44F-477819E61BE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KanaFrame", "..\..\KanaFrame\KanaFrame.csproj", "{B3AE0553-11CE-4FB6-A44F-477819E61BE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

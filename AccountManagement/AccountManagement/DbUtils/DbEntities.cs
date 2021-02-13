@@ -13,9 +13,10 @@ namespace AccountManagement.DbUtils
 {
     class DbEntities:DbContext
     {
-        private static string connStr = ConfigurationManager.AppSettings["dbContextConnStr"].ToString();
+        //private static string connStr = ConfigurationManager.AppSettings["dbContextConnStr"].ToString();
+       // private static string connStr = ConfigurationManager.connectionStrings.ToString();
 
-        public DbEntities() : base(connStr)
+        public DbEntities() : base("name= BloggingContext")
         {
 
         }

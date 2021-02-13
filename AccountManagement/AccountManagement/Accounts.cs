@@ -50,7 +50,19 @@ namespace AccountManagement
                 comboBoxResults.Items.Clear();
                 _accountList.Clear();
             }
-            List<AccountInformation> accountFoundList =  _service.findAllData();
+            //List<AccountInformation> accountFoundList =  _service.findAllData();
+
+            List<AccountInformation> accountFoundList = new List<AccountInformation>();
+
+            using (var context = new DbEntities())
+            {
+                accountFoundList = context.accountInfoDbset
+                        .AsNoTracking()
+                        .ToList();
+            }
+
+
+
 
             resultsCheck(accountFoundList);
 

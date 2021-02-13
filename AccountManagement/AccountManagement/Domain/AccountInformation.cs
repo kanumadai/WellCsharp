@@ -1,6 +1,7 @@
 ﻿using AccountManagement.FileOperate;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace AccountManagement.Domain
     /// </summary>
     public class AccountInformation : CsvFileImpl
     {
+        [Key]
         public Int64 accountId { get; set; }
         public string userId { get; set; }
         public string webSite { get; set; }

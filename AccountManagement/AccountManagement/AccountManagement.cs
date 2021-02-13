@@ -126,9 +126,22 @@ namespace AccountManagement
             {
                 Users user = new Users();
 
-                IServiceAble <Users> service = new ServiceImpl<Users>();
+                //IServiceAble <Users> service = new ServiceImpl<Users>();
 
-                List<Users> userList = service.findDataByKeyWord("userId", textBoxAccount.Text);
+                //List<Users> userList = service.findDataByKeyWord("userId", textBoxAccount.Text);
+
+                List<Users> userList = new List<Users>();
+
+                using (var context = new DbEntities())
+                {
+                    userList = context.usersDbset
+                            .AsNoTracking()
+                            .Where(a =>a.userId == textBoxAccount.Text)
+                            .ToList();
+                }
+
+
+
                 //user is already exist.
                 if (userList != null && userList.Count==1)
                 {
@@ -157,7 +170,7 @@ namespace AccountManagement
         private void AccountManagement_Load(object sender, EventArgs e)
         {
             //  DataSource.connectionPool();
-            CommLog.loger.Info("Hello Account Manager:");
+            CommLog.loger.Info("Hello Account Manager.");
 
         }
     }
